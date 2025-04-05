@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/public/styles/contacto.css" />
+    <link rel="stylesheet" href="global.css">
     <title>Contacto</title>
   </head>
   <body>
@@ -19,7 +20,7 @@
     <main>
       <section class="formulario">
         <h3>Comunicate con nosotros</h3>
-        <form action="#" method="POST">
+        <form id="formulario" action="#" method="POST">
           <label for="nombre">Nombre</label>
           <input
             type="text"
@@ -61,4 +62,18 @@
       </section>
     </main>
   </body>
+  <script>
+    const formulario = document.getElementById("formulario");
+
+    formulario.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      let nombre = formulario.elements["nombre"].value;
+      let email = formulario.elements["email"].value;
+      let tel = formulario.elements["telefono"].value;
+      let msj = formulario.elements["mensaje"].value;
+
+      alert(`Nombre: ${nombre} \nEmail: ${email} \nTelefono: ${tel} \nMensaje: ${msj}`);
+    });
+  </script>
 </html>
